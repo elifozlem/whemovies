@@ -33,7 +33,7 @@ namespace VeriCekme
         public void LoadMovies()
         {
 
-            //video tablosu oluştur. konu tür gibi bilgileri de çek. imdb.title adreslerini kes son kısmı al
+            
             var web = new HtmlWeb();
            
           
@@ -50,7 +50,7 @@ namespace VeriCekme
                     a.LINK1 = lnk;
                     a.LINKID = Guid.NewGuid();
                     a.NAME = ad;
-                   var count =db.Links.Count(m => m.LINK1 == a.LINK1); //aynı verileri kaydetmesin.
+                   var count =db.Links.Count(m => m.LINK1 == a.LINK1); 
                    if(count==0)
                    { 
                        db.Links.Add(a);
@@ -75,7 +75,7 @@ namespace VeriCekme
                 var trailers = doc.DocumentNode.SelectNodes("//div[@class='KoD8 mrtrailer']/a");
                 var imdb = doc.DocumentNode.SelectNodes("//div[@class='KoD8 imdb']/em/a");
 
-                var video = doc.DocumentNode.SelectNodes("//div[@class='icerik']/div[@class='postTabs_divs']/p[iframe]"); //bütün olarak alıyor.//div[@class='postTabs_divs']/p[iframe]
+                var video = doc.DocumentNode.SelectNodes("//div[@class='icerik']/div[@class='postTabs_divs']/p[iframe]"); 
                 var topic = doc.DocumentNode.SelectNodes("//p");
               
                 var mv = new Movie();
@@ -88,7 +88,7 @@ namespace VeriCekme
                     var tp = item.InnerText;
                     if (tp != "")
                     {
-                        mv.TOPIC = tp;  //Yemek tarifleri çekiyor???????
+                        mv.TOPIC = tp; 
                         
                     }
                   
